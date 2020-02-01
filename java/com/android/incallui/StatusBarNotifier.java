@@ -46,6 +46,8 @@ import android.os.Trace;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import com.sudamod.sdk.phonelocation.PhoneUtil;
+import android.suda.utils.SudaUtils;
 import android.support.annotation.RequiresPermission;
 import android.support.annotation.StringRes;
 import android.support.annotation.VisibleForTesting;
@@ -565,13 +567,24 @@ public class StatusBarNotifier
         ContactsComponent.get(context)
             .contactDisplayPreferences()
             .getDisplayName(contactInfo.namePrimary, contactInfo.nameAlternative);
+    if (SudaUtils.isSupportLanguage(true)) {
+         String location = PhoneUtil.getPhoneUtil(context).getLocalNumberInfo(contactInfo.number);
     if (TextUtils.isEmpty(preferredName)) {
+          if (!TextUtils.isEmpty(location)) {
+              return contactInfo.number + " " + location;
+          }
+          return contactInfo.number;
+      }
+      return !TextUtils.isEmpty(location) ? preferredName + " " + location : preferredName;
+      } else {
+           if (TextUtils.isEmpty(preferredName)) {
       return TextUtils.isEmpty(contactInfo.number)
           ? null
           : BidiFormatter.getInstance()
               .unicodeWrap(contactInfo.number, TextDirectionHeuristics.LTR);
     }
     return preferredName;
+      }
   }
 
   private void addPersonReference(

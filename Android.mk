@@ -136,6 +136,9 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 	libbackup \
 	libphonenumber \
 	volley \
+	okio \
+	okhttp \
+
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
 	android-support-core-ui \

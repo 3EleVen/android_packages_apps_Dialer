@@ -105,6 +105,7 @@ import com.android.dialer.util.ViewUtil;
 import com.android.dialer.widget.FloatingActionButtonController;
 import com.google.common.base.Ascii;
 import com.google.common.base.Optional;
+import com.sudamod.sdk.phonelocation.PhoneUtil;
 import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -349,7 +350,13 @@ public class DialpadFragment extends Fragment
     }
 
     if (dialpadQueryListener != null) {
-      dialpadQueryListener.onDialpadQueryChanged(digits.getText().toString());
+      String number = digits.getText().toString();
+      dialpadQueryListener.onDialpadQueryChanged(number);
+      if (number.length() >= 3) {
+		digitsHint.setText(PhoneUtil.getPhoneUtil(getActivity()).getLocalNumberInfo(number));
+      } else {
+        digitsHint.setText("");
+      }
     }
 
     updateDeleteButtonEnabledState();
@@ -469,21 +476,14 @@ public class DialpadFragment extends Fragment
    * difficult.
    */
   private void updateDialpadHint() {
-    if (!TextUtils.isEmpty(digits.getText())) {
-      digitsHint.setVisibility(View.GONE);
-      return;
-    }
 
     if (shouldShowEmergencyCallWarning(getContext())) {
       String hint = getContext().getString(R.string.dialpad_hint_emergency_calling_not_available);
       digits.setContentDescription(hint);
       digitsHint.setText(hint);
-      digitsHint.setVisibility(View.VISIBLE);
       return;
     }
     digits.setContentDescription(null);
-
-    digitsHint.setVisibility(View.GONE);
   }
 
   /**
@@ -1232,6 +1232,9 @@ public class DialpadFragment extends Fragment
   public void clearDialpad() {
     if (digits != null) {
       digits.getText().clear();
+    }
+    if (digitsHint != null) {
+      digitsHint.setText("");
     }
     selectedAccount = null;
   }

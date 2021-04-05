@@ -27,8 +27,15 @@
     <string name="allow">允许</string>
     <string name="deny">拒绝</string>
     <string name="call_recording_category_title">通话录音</string>
+    <string name="auto_call_recording_title">自动录音</string>
     <string name="call_recording_format">音频格式</string>
     <string name="call_via">呼叫途径</string>
     <string name="call_via_dialog_title">呼叫途径\u2026</string>
     <string name="call_log_stats_title">统计</string>
+    <string name="fullscreen_caller_photo_title">全屏照片</string>
+    <string name="fullscreen_caller_photo_summary">来去电显示全屏照片</string>
+    <string name="fullscreen_caller_photo_message">设定后请重新进入应用</string>
+    <string name="disable_proximity_sensor_title">禁用传感器</string>
+    <string name="disable_proximity_sensor_summary">通话中禁止使用光感器关闭屏幕</string>
+    <string name="display_options_settings_titile">显示设置</string>
 </resources>

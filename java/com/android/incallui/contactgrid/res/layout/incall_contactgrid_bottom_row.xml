@@ -39,7 +39,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:visibility="gone"
-      android:singleLine="true"
+      android:singleLine="false"
       android:textAppearance="@style/Dialer.Incall.TextAppearance"
       tools:gravity="start"
       tools:text="+1 (650) 253-0000"/>
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:singleLine="true"
+        android:singleLine="false"
         android:textAppearance="@style/Dialer.Incall.TextAppearance"
         tools:gravity="start"
         tools:text="Mobile +1 (650) 253-0000"/>

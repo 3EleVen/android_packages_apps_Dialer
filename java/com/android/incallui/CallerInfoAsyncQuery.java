@@ -506,7 +506,7 @@ public class CallerInfoAsyncQuery {
               // new parameter to CallerInfoAsyncQuery.startQuery() to force
               // the geoDescription field to be populated.)
 
-              if (TextUtils.isEmpty(callerInfo.name)) {
+              if (true/*TextUtils.isEmpty(callerInfo.name)*/) {
                 // Actually when no contacts match the incoming phone number,
                 // the CallerInfo object is totally blank here (i.e. no name
                 // *or* phoneNumber).  So we need to pass in cw.number as

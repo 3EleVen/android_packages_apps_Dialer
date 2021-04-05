@@ -715,7 +715,7 @@ public class CallCardPresenter
               .setLocation(
                   shouldShowLocationAsLabel(nameIsNumber, primaryContactInfo.shouldShowLocation)
                       ? primaryContactInfo.location
-                      : null)
+                      : " " + number + "\n" + "  " + primaryContactInfo.location/*null*/)
               .setLabel(isChildNumberShown || isCallSubjectShown ? null : primaryContactInfo.label)
               .setPhoto(primaryContactInfo.photo)
               .setPhotoUri(primaryContactInfo.displayPhotoUri)

@@ -15,6 +15,11 @@ include $(CLEAR_VARS)
 # The base directory for Dialer sources.
 BASE_DIR := java/com/android
 
+SM1 := java/android/suda/location
+SM2 := java/android/suda/utils
+SM3 := java/com/sudamod/sdk/phonelocation
+SM4 := java/com/sudamod/sdk/utils
+
 # Exclude files incompatible with AOSP.
 EXCLUDE_FILES := \
 	$(BASE_DIR)/incallui/calllocation/impl/AuthException.java \
@@ -77,6 +82,14 @@ LOCAL_FULL_LIBS_MANIFEST_FILES := \
 LOCAL_SRC_FILES := $(call all-java-files-under, $(BASE_DIR))
 LOCAL_SRC_FILES += $(call all-proto-files-under, $(BASE_DIR))
 LOCAL_SRC_FILES += $(call all-Iaidl-files-under, $(BASE_DIR))
+LOCAL_SRC_FILES += $(call all-java-files-under, $(SM1))
+LOCAL_SRC_FILES += $(call all-Iaidl-files-under, $(SM1))
+LOCAL_SRC_FILES += $(call all-java-files-under, $(SM2))
+LOCAL_SRC_FILES += $(call all-Iaidl-files-under, $(SM2))
+LOCAL_SRC_FILES += $(call all-java-files-under, $(SM3))
+LOCAL_SRC_FILES += $(call all-Iaidl-files-under, $(SM3))
+LOCAL_SRC_FILES += $(call all-java-files-under, $(SM4))
+LOCAL_SRC_FILES += $(call all-Iaidl-files-under, $(SM4))
 LOCAL_SRC_FILES += ../../providers/ContactsProvider/src/com/android/providers/contacts/NameSplitter.java \
                    ../../providers/ContactsProvider/src/com/android/providers/contacts/HanziToPinyin.java \
                    ../../providers/ContactsProvider/src/com/android/providers/contacts/util/NeededForTesting.java
@@ -137,7 +150,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 	libphonenumber \
 	volley \
 	okio \
-	okhttp \
+	okhttp1 \
 
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \

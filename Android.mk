@@ -152,7 +152,6 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 	okio \
 	okhttp1 \
 
-
 LOCAL_STATIC_ANDROID_LIBRARIES := \
 	android-support-core-ui \
 	$(ANDROID_SUPPORT_DESIGN_TARGETS) \

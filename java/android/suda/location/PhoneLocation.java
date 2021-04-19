@@ -34,7 +34,7 @@ public final class PhoneLocation {
         "769"
     };
 
-    private static String LIBPATH = "mokee-phoneloc-jni";
+    private static String LIBPATH = "suda-phoneloc-jni";
 
     static {
         System.loadLibrary(LIBPATH);
